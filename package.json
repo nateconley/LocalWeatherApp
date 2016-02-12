@@ -1,0 +1,19 @@
+{
+  "name": "localweatheapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nateconley/LocalWeatherApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nateconley/LocalWeatherApp/issues"
+  },
+  "homepage": "https://github.com/nateconley/LocalWeatherApp#readme"
+}

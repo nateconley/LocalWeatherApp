@@ -2,9 +2,15 @@
 <html>
 <head>
 	<title>LocalWeatherApp | Nate Conley</title>
+	<!-- Stylesheets -->
 	<link rel="stylesheet" link="../css/styles.css">
 </head>
-<body>
-	<form method="post">
-		<input type="submit" name="geolocation" />
-	</form>
+<body ng-app="weatherApp">
+	<div class="search" ng-controller="location">
+		<button ng-click="geolocation()">GeoLocation</button>
+	</div>
+</body>
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<script type="text/javascript" src="../client-scripts/scripts.js"></script>
+</html>

@@ -3,12 +3,9 @@ var fs = require('fs');
 var header = fs.readFileSync('./html/header.html');
 var footer = fs.readFileSync('./html/footer.html');
 
-var page = function(response) {
+var generator = function(request, response) {
 	response.write(header);
-	response.write(footer);
 	response.end();
 }
 
-module.exports.page = page;
-
-if()
+module.exports.generator = generator;

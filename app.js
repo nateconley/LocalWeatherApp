@@ -5,7 +5,7 @@ var routes = require('./routes');
 //Create a server 
 var server = http.createServer(function (request, response){
 	response.writeHead(200, {'Content-type': 'text/html'});
-	routes.page(response);
+	routes.generator(request, response);
 }); 
 
 //Listen on port 3000

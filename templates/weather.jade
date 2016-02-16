@@ -1,0 +1,36 @@
+doctype html
+html
+	include ./partials/_weather_head.jade
+	body.container(ng-app="weatherApp")
+		.jumbotron
+			h1 LocalWeatherApp
+			h2 #[a(href="") Back to nateconley.com]
+		.weather-info.col-lg-4.col-lg-offset-4
+			.row
+				.col-lg-10.col-lg-offset-1
+					.search(ng-controller="location")
+						.input-group
+							span.input-group-btn
+								button.btn.btn-default(type="button", ng-click="geolocation()") Geo!
+							input.form-control(type="text", placeholder="ZIP (US only)")
+							span.input-group-btn
+								button.btn.btn-default(type="submit" ng-click="zip()") Submit!
+
+
+
+			.row.loading
+				.col-lg-10.col-lg-offset-1
+					p Getting weather data...
+					.progress
+						.progress-bar.progress-bar-striped.active(role="progressbar", aria-valuenow="60", aria-valuemin="0", aria-valuemax="100", style="width: 60%;")
+			.row
+				.col-lg-10.col-lg-offset-1
+					.display-weather
+						h2 Clovis, US
+						h1 67 &ordm;
+						p Sunny
+						.btn-group(role="group")
+							button.btn.btn-primary(type="button") F
+							button.btn.btn-default(type="button") C
+
+	include ./partials/_weather_footer.jade

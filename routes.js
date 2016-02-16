@@ -1,11 +1,5 @@
-var fs = require('fs');
-
-var header = fs.readFileSync('./html/header.html');
-var footer = fs.readFileSync('./html/footer.html');
-
-var generator = function(request, response) {
-	response.write(header);
-	response.end();
+var weather = function(req, res) {
+	res.render('weather');
 }
 
-module.exports.generator = generator;
+module.exports.weather = weather;

@@ -8,7 +8,7 @@ var location = {
 }
 
 //API call 
-var apiCall = function(options) {
+var apiCall = function(location) {
 	var url = "http://api.openweathermap.org/data/2.5/weather";
 	var appid = "&appid=6b89f8f900eaa2da365dfe67bda5b1a2";
 	
@@ -28,3 +28,6 @@ var apiCall = function(options) {
 }
 
 apiCall(location);
+
+//export the weather api call
+module.exports.apiCall = apiCall;

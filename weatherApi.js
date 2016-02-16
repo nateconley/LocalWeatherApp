@@ -12,17 +12,20 @@ var apiCall = function(location) {
 	}
 
 	request(url, function (error, response, body) {
+		var weatherData = {};
 	  if (!error && response.statusCode == 200) {
 	    var content = JSON.parse(body);
-	    var city = content.name + ", " + content.sys.country;
-	    var temperature = Math.round(content.main.temp);
-	    var condition = content.weather[0].description.toLowerCase();
-
-	    console.log("The temperature for " + city + " is " + temperature + "F and the condition is: " + condition);
-
-	  } else if (error) {
-	  	console.log("there was an error");
+	    if(content.cod == 200) {	// Check api json for error code
+		    weatherData.city = content.name + ", " + content.sys.country;
+		    weatherData.temperature = Math.round(content.main.temp);	// Defaults to fahrenheit
+		    weatherData.condition = content.weather[0].description;
+		  } else {
+		  	weatherData.error = true;	// return error
+		  }
+	  } else {
+	  	weatherData.error = true;	// return error
 	  }
+	  console.log(weatherData);
 	});
 }
 

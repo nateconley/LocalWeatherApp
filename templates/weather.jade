@@ -12,11 +12,9 @@ html
 						.input-group
 							span.input-group-btn
 								button.btn.btn-default(type="button", ng-click="geolocation()") Geo!
-							input.form-control(type="text", placeholder="ZIP (US only)")
+							input.form-control(type="text", ng-model="zipCode",placeholder="ZIP (US only)")
 							span.input-group-btn
 								button.btn.btn-default(type="submit" ng-click="zip()") Submit!
-
-
 
 			.row.loading
 				.col-lg-10.col-lg-offset-1

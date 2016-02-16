@@ -13,7 +13,9 @@ angular.module('weatherApp', [])
 
 	$scope.zip = function(){
 		console.log("you have pressed the zip code button");
-		console.log();
+		var location = {};
+		location.zip = $scope.zipCode;
+		$http.post('/', location);
 	}
 
 });

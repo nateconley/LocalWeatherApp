@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,UAAW;EACV,UAAU,EAAE,MAAM;;AAOnB,aAAc;EACb,MAAM,EAAE,cAAc;EACtB,aAAa,EAAE,GAAG;;AAGnB,OAAQ;EACP,OAAO,EAAE,GAAG;;AAGb;QACS;EACR,cAAc,EAAE,GAAG",
+"mappings": "AAAA,UAAW;EACV,UAAU,EAAE,MAAM;;AAGnB,aAAc;EACb,MAAM,EAAE,cAAc;EACtB,aAAa,EAAE,GAAG;;AAGnB,OAAQ;EACP,OAAO,EAAE,GAAG;;AAGb;QACS;EACR,cAAc,EAAE,GAAG",
 "sources": ["weather.scss"],
 "names": [],
 "file": "weather.css"

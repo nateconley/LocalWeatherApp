@@ -26,8 +26,6 @@ var apiCall = function(location, res) {
 	  	weatherData.error = true;	// return error
 	  }
 	  
-	  console.log(weatherData);
-	  
 	  res.json(weatherData);
 	});
 }

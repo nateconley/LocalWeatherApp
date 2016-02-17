@@ -11,17 +11,17 @@ html
 					.search
 						.input-group
 							span.input-group-btn
-								button.btn.btn-default(type="button", ng-click="geolocation()") #[i.fa.fa-location-arrow]
+								button.btn.btn-default(type="button", ng-click="getWeather('geo')") #[i.fa.fa-location-arrow]
 							input.form-control(type="text", ng-model="zipCode", placeholder="ZIP code")
 							span.input-group-btn
-								button.btn.btn-default(type="submit" ng-click="zip()") #[i.fa.fa-search]
+								button.btn.btn-default(type="submit" ng-click="getWeather('zip')") #[i.fa.fa-search]
 
-			.row.loading
+			.row.loading(ng-hide="!loading")
 				.col-sm-10.col-sm-offset-1
 					p Getting weather data...
 					.progress
 						.progress-bar.progress-bar-striped.active(role="progressbar", aria-valuenow="60", aria-valuemin="0", aria-valuemax="100", style="width: 60%;")
-			.row
+			.row(ng-hide="!showData")
 				.col-sm-10.col-sm-offset-1
 					.display-weather
 						h2 {{city}}
@@ -30,5 +30,10 @@ html
 						.btn-group(role="group")
 							button.btn.btn-primary(type="button") F
 							button.btn.btn-default(type="button") C
+			.row(ng-hide="!error")
+				.col-sm-10.col-sm-offect-1
+					.display-error
+						h1 Oh no!
+						h2 Something went wrong!
 
 	include ./partials/_weather_footer.jade

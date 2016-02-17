@@ -1,34 +1,79 @@
 angular.module('weatherApp', [])
 .controller('location', function($scope, $http){
 
-	// Geolocation option
-	$scope.geolocation = function(){
-		console.log("you have pressed the geolocation button");
-		navigator.geolocation.getCurrentPosition(function(position){
-			var location = {};
-			location.latitude = position.coords.latitude;
-			location.longitude = position.coords.longitude;
-			console.log(location);
+
+
+
+
+	$scope.getWeather = function(type){
+		// variables showing state of app for DOM elements
+		$scope.loading = true;
+		$scope.showData = false;
+		$scope.error = false;
+		// empty location object
+		var location = {}
+		// If requesting zip code
+		if (type == "zip") {
+			location.zip = $scope.zipCode;
 			$http.post('/weather', location).then(function(response){
 				var weatherData = response.data;
-				$scope.city = weatherData.city;
-				$scope.temperature = weatherData.temperature + " &ordm; F";
-				$scope.condition = weatherData.condition;
+				console.log(weatherData);
+				if (!weatherData.error) {
+					// Success
+					$scope.city = weatherData.city;
+					$scope.temperature = weatherData.temperature + " &ordm; F";
+					$scope.condition = weatherData.condition;
+					// Hide Loading Bar and show Data
+					$scope.loading = false;
+					$scope.showData = true;
+				} else {
+					// Failure
+					$scope.error = true;
+					$scope.loading = false;
+					$scope.showData = false;
+				}
 			}, function(){
-				console.log("request failed");
+				// Failure
+				$scope.error = true;
+				$scope.loading = false;
+				$scope.showData = false;
 			});
-		});
+		} else if (type == "geo") {
+			// If requesting geoLocation
+			navigator.geolocation.getCurrentPosition(function(position){
+				var location = {};
+				location.latitude = position.coords.latitude;
+				location.longitude = position.coords.longitude;
+				// http post function
+				$http.post('/weather', location).then(function(response){
+					var weatherData = response.data;
+					if (!weatherData.error) {
+						// Success
+						$scope.city = weatherData.city;
+						$scope.temperature = weatherData.temperature + " &ordm; F";
+						$scope.condition = weatherData.condition;
+						// Hide Loading Bar and show Data
+						$scope.loading = false;
+						$scope.showData = true;
+					} else {
+						// Failure
+						$scope.error = true;
+						$scope.loading = false;
+						$scope.showData = false;
+					}
+				}, function(){
+					// Failure
+					$scope.error = true;
+					$scope.loading = false;
+					$scope.showData = false;
+				});
+			});
+		}
 	}
 
-	$scope.zip = function(){
-		console.log("you have pressed the zip code button");
-		var location = {};
-		location.zip = $scope.zipCode;
-		$http.post('/weather', location).then(function(response){
-			console.log(response.data);
-		}, function(){
-			console.log("request failed");
-		});
-	}
+
+
+
 
 });
+

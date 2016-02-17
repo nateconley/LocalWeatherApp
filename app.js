@@ -9,6 +9,9 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// Make html not minified
+app.locals.pretty = true;
+
 app.use('/static', express.static(__dirname + '/public'));
 
 app.set('view engine', 'jade');

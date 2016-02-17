@@ -14,10 +14,10 @@ app.use('/static', express.static(__dirname + '/public'));
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/templates');
 
-app.get('/', routes.weather);
+app.get('/weather', routes.weather);
 
-app.post('/', function(req, res){
-	weatherApi.apiCall(req.body);
+app.post('/weather', function(req, res){
+	weatherApi.apiCall(req.body, res);
 });
 
 app.listen(3000, function(){

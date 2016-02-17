@@ -1,7 +1,7 @@
 var request = require('request');
 
 //API call 
-var apiCall = function(location) {
+var apiCall = function(location, res) {
 	var url = "http://api.openweathermap.org/data/2.5/weather";
 	var appid = "&units=imperial&appid=6b89f8f900eaa2da365dfe67bda5b1a2";
 	
@@ -26,6 +26,8 @@ var apiCall = function(location) {
 	  	weatherData.error = true;	// return error
 	  }
 	  console.log(weatherData);
+	  
+	  res.json(weatherData);
 	});
 }
 

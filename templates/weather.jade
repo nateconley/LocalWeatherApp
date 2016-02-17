@@ -4,7 +4,7 @@ html
 	body.container(ng-app="weatherApp")
 		.jumbotron
 			h1 LocalWeatherApp
-			h2 #[a(href="") Back to nateconley.com]
+			h2 #[a(href="http://localhost:3000/") Back to nateconley.com]
 		.weather-info.col-sm-4.col-sm-offset-4(ng-controller="location")
 			.row(ng-hide="!invalidZip")
 				.error
@@ -31,8 +31,8 @@ html
 						h1 {{temperature}}
 						p {{condition}}
 						.btn-group(role="group")
-							button.btn.btn-primary(ng-click="changeUnit('fahrenheit')", type="button") F
-							button.btn.btn-default(ng="changeUnit('celcius')", type="button") C
+							button(ng-class="fahrenheitClass", ng-click="changeUnit('fahrenheit')", type="button") F
+							button(ng-class="celciusClass", ng-click="changeUnit('celcius')", type="button") C
 			.row(ng-hide="!error")
 				.col-sm-10.col-sm-offect-1
 					.display-error

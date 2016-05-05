@@ -17,9 +17,9 @@ app.use('/static', express.static(__dirname + '/public'));
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/templates');
 
-app.get('/weather', routes.weather);
+app.get('/', routes.weather);
 
-app.post('/weather', function(req, res){
+app.post('/', function(req, res){
 	weatherApi.apiCall(req.body, res);
 });
 

@@ -26,7 +26,7 @@ angular.module('weatherApp', [])
 				$scope.invalidZip = true;
 				$scope.loading = false;
 			} else {
-				$http.post('/weather', location).then(function(response){
+				$http.post('/', location).then(function(response){
 					var weatherData = response.data;
 					if (!weatherData.error) {
 						// Success
@@ -57,7 +57,7 @@ angular.module('weatherApp', [])
 				location.latitude = position.coords.latitude;
 				location.longitude = position.coords.longitude;
 				// http post function
-				$http.post('/weather', location).then(function(response){
+				$http.post('/', location).then(function(response){
 					var weatherData = response.data;
 					if (!weatherData.error) {
 						// Success

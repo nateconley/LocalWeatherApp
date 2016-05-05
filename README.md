@@ -1,9 +1,5 @@
-### LocalWeatherApp
+#LocalWeatherApp
 
-#Local Weather App project for Free Code Camp
+LocalWeatherApp uses the geolocation API and the Open Weather API to retrieve user's current weather information.
 
-This project will offer users the ability to get the local weather for their location, or for another zip code. 
-
-Client-side will use vanilla SASS and JavaScript.
-
-Node will handle the API call. 
+This project uses Angular and Bootstrap on the front end, and Node, Express, and other node modules on the back end. Jade was used for templating. While this could have been a much simpler application, building a back end let me hide the API key information from users.

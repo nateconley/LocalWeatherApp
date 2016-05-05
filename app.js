@@ -5,6 +5,8 @@ var weatherApi = require('./weatherApi');
 
 var app = express();
 
+var port = process.env.PORT || 3000;
+
 // Accesses post body data
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -23,6 +25,6 @@ app.post('/', function(req, res){
 	weatherApi.apiCall(req.body, res);
 });
 
-app.listen(3000, function(){
-	console.log("The frontend server is running on port 3000");
+app.listen(port, function(){
+	console.log("Server running at " + port);
 });

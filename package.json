@@ -10,11 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/nateconley/LocalWeatherApp.git"
   },
-  // For Heroku
   "engines": {
     "node": "4.4.3"
   }
-  // End Heroku
   "author": "",
   "license": "ISC",
   "bugs": {
